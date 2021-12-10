@@ -1,19 +1,18 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { TestDatabase } from '../../test/utils/postgres.modules';
 import { getConnection } from 'typeorm';
-import { MembershipModule } from '../membership/membership.module';
-import { UserService } from './user.service';
+import { TestDatabase } from '../../test/utils/postgres.modules';
+import { MembershipService } from './membership.service';
 
-describe('UserService', () => {
-  let service: UserService;
+describe('MembershipService', () => {
+  let service: MembershipService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      imports: [...TestDatabase(), MembershipModule],
-      providers: [UserService],
+      imports: [...TestDatabase()],
+      providers: [MembershipService],
     }).compile();
 
-    service = module.get<UserService>(UserService);
+    service = module.get<MembershipService>(MembershipService);
   });
 
   afterEach(() => {
