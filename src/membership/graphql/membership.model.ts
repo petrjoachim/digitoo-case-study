@@ -12,7 +12,7 @@ export class Membership {
   id: string;
 
   @Field(() => MembershipType)
-  type: MembershipType;
+  tarif: MembershipType;
 
   @Field(() => GraphQLISODateTime)
   createdAt: Date;

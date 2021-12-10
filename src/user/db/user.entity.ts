@@ -1,13 +1,13 @@
-import { MembershipEntity } from '../membership/membership.entity';
+import { MembershipEntity } from '../../membership/db/membership.entity';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity({ name: 'user' })
 export class UserEntity {
-  @PrimaryGeneratedColumn()
-  id: number;
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
   @Column({ type: 'timestamptz' })
-  birthDate: string;
+  birthDate: Date;
 
   @Column()
   firstName: string;

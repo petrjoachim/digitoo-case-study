@@ -1,7 +1,7 @@
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { MembershipEntity } from '../../src/membership/membership.entity';
-import { UserEntity } from '../../src/user/user.entity';
+import { MembershipEntity } from '../../src/membership/db/membership.entity';
+import { UserEntity } from '../../src/user/db/user.entity';
 
 export const TestDatabase = () => [
   ConfigModule.forRoot({ envFilePath: '.env' }),

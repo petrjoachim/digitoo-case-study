@@ -1,9 +1,9 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { MembershipModule } from 'src/membership/membership.module';
-import { UserController } from './user.controller';
-import { UserEntity } from './user.entity';
-import { UserResolver } from './user.resolver';
+import { MembershipModule } from '../membership/membership.module';
+import { UserEntity } from './db/user.entity';
+import { UserResolver } from './graphql/user.resolver';
+import { UserController } from './rest/user.controller';
 import { UserService } from './user.service';
 
 @Module({

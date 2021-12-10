@@ -30,6 +30,7 @@
     "apollo-server-core": "^3.5.0",
     "apollo-server-express": "^3.5.0",
     "class-validator": "^0.13.2",
+    "date-fns": "^2.27.0",
     "graphql": "^15.8.0",
     "pg": "^8.7.1",
     "postgres": "^1.0.2",

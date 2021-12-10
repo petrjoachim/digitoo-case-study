@@ -6,7 +6,10 @@ import {
   ObjectType,
 } from '@nestjs/graphql';
 import { IsDateString, IsEmail, IsNotEmpty, IsOptional } from 'class-validator';
-import { Membership, MembershipType } from '../membership/membership.model';
+import {
+  Membership,
+  MembershipType,
+} from '../../membership/graphql/membership.model';
 
 @ObjectType({ description: 'User' })
 export class User {
