@@ -32,3 +32,55 @@ npm run start:dev
 # unit tests
 $ npm run test
 ```
+
+
+# API
+## REST
+```
+POST http://localhost:1337/v1/user/purge/everything
+```
+
+## Graphql
+http://localhost:1337/graphql
+```
+{
+  users(query: { membershipType: PROFI }) {
+    id
+    firstName
+    lastName
+    email
+    birthDate
+    membership {
+      id
+      createdAt
+      tarif
+    }
+  }
+}
+
+```
+
+```
+mutation {
+  createUser(
+    user: {
+      firstName: "Oba Wan"
+      lastName: "Kenobi"
+      membershipType: PROFI
+      birthDate: "2021-12-21T12:00:00Z"
+      email: "obiwan@jedi.org"
+    }
+  ) {
+    id
+    lastName
+    firstName
+    email
+    birthDate
+    membership {
+      id
+      createdAt
+      tarif
+    }
+  }
+}
+```
