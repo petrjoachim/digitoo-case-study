@@ -8,7 +8,7 @@ import {
 
 @ObjectType({ description: 'Membership' })
 export class Membership {
-  @Field((type) => ID)
+  @Field(() => ID)
   id: string;
 
   @Field(() => MembershipType)

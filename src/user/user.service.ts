@@ -1,14 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { MembershipType } from '../membership/membership.model';
-import { User } from './user.model';
+import { NewUserInput, User, UserQuery } from './user.model';
 
 @Injectable()
 export class UserService {
-  public async filterUsers(query: {
-    membership?: string;
-    email?: string;
-    birthDate?: string;
-  }): Promise<User[]> {
+  public async filterUsers(query: UserQuery): Promise<User[]> {
+    query;
     return [
       {
         id: '1',
@@ -32,7 +29,8 @@ export class UserService {
     ];
   }
 
-  public async createUser(): Promise<User> {
+  public async createUser(user: NewUserInput): Promise<User> {
+    user;
     return {
       id: '1',
       email: 'luke@jedi.org',
@@ -45,5 +43,9 @@ export class UserService {
         createdAt: new Date(),
       },
     };
+  }
+
+  public async purgeEverything(): Promise<void> {
+    return;
   }
 }

@@ -5,11 +5,12 @@ import {
   InputType,
   ObjectType,
 } from '@nestjs/graphql';
+import { IsDateString, IsEmail, IsNotEmpty, IsOptional } from 'class-validator';
 import { Membership, MembershipType } from '../membership/membership.model';
 
 @ObjectType({ description: 'User' })
 export class User {
-  @Field((type) => ID)
+  @Field(() => ID)
   id: string;
 
   @Field()
@@ -31,17 +32,40 @@ export class User {
 @InputType()
 export class NewUserInput {
   @Field()
+  @IsNotEmpty()
+  @IsEmail()
   email: string;
 
   @Field()
+  @IsNotEmpty()
   firstName: string;
 
   @Field()
+  @IsNotEmpty()
   lastName: string;
 
   @Field()
+  @IsDateString()
   birthDate: string;
 
   @Field(() => MembershipType)
+  membershipType?: MembershipType;
+}
+
+@InputType()
+export class UserQuery {
+  @Field({ nullable: true })
+  @IsNotEmpty()
+  @IsEmail()
+  @IsOptional()
+  email?: string;
+
+  @Field({ nullable: true })
+  @IsDateString()
+  @IsOptional()
+  birthDate?: string;
+
+  @Field(() => MembershipType, { nullable: true })
+  @IsOptional()
   membershipType?: MembershipType;
 }
